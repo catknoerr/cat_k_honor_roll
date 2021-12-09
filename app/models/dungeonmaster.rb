@@ -1,6 +1,10 @@
 class Dungeonmaster < ApplicationRecord
   # Direct associations
 
+  has_many   :reviews,
+             :foreign_key => "dm_id",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations
