@@ -1,6 +1,10 @@
 class Dungeonmaster < ApplicationRecord
   # Direct associations
 
+  has_many   :games,
+             :foreign_key => "dm_id",
+             :dependent => :nullify
+
   has_many   :users,
              :foreign_key => "dm_id",
              :dependent => :destroy
