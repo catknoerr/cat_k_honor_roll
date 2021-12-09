@@ -20,5 +20,4 @@ class PlayerResource < ApplicationResource
   has_many   :games
 
   # Indirect associations
-
 end

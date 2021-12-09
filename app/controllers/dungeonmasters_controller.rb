@@ -1,10 +1,11 @@
 class DungeonmastersController < ApplicationController
-  before_action :set_dungeonmaster, only: [:show, :edit, :update, :destroy]
+  before_action :set_dungeonmaster, only: %i[show edit update destroy]
 
   # GET /dungeonmasters
   def index
     @q = Dungeonmaster.ransack(params[:q])
-    @dungeonmasters = @q.result(:distinct => true).includes(:reviews, :users, :games).page(params[:page]).per(10)
+    @dungeonmasters = @q.result(distinct: true).includes(:reviews, :users,
+                                                         :games).page(params[:page]).per(10)
   end
 
   # GET /dungeonmasters/1
@@ -20,15 +21,15 @@ class DungeonmastersController < ApplicationController
   end
 
   # GET /dungeonmasters/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /dungeonmasters
   def create
     @dungeonmaster = Dungeonmaster.new(dungeonmaster_params)
 
     if @dungeonmaster.save
-      redirect_to @dungeonmaster, notice: 'Dungeonmaster was successfully created.'
+      redirect_to @dungeonmaster,
+                  notice: "Dungeonmaster was successfully created."
     else
       render :new
     end
@@ -37,7 +38,8 @@ class DungeonmastersController < ApplicationController
   # PATCH/PUT /dungeonmasters/1
   def update
     if @dungeonmaster.update(dungeonmaster_params)
-      redirect_to @dungeonmaster, notice: 'Dungeonmaster was successfully updated.'
+      redirect_to @dungeonmaster,
+                  notice: "Dungeonmaster was successfully updated."
     else
       render :edit
     end
@@ -46,17 +48,20 @@ class DungeonmastersController < ApplicationController
   # DELETE /dungeonmasters/1
   def destroy
     @dungeonmaster.destroy
-    redirect_to dungeonmasters_url, notice: 'Dungeonmaster was successfully destroyed.'
+    redirect_to dungeonmasters_url,
+                notice: "Dungeonmaster was successfully destroyed."
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_dungeonmaster
-      @dungeonmaster = Dungeonmaster.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def dungeonmaster_params
-      params.require(:dungeonmaster).permit(:description, :preferences, :photo, :years_experience, :age, :characters)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_dungeonmaster
+    @dungeonmaster = Dungeonmaster.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def dungeonmaster_params
+    params.require(:dungeonmaster).permit(:description, :preferences, :photo,
+                                          :years_experience, :age, :characters)
+  end
 end

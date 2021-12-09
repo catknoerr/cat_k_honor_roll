@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class User < ApplicationRecord
   before_validation :geocode_location
 
   def geocode_location
-    if self.location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.location)}"
+    if location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(location)}"
 
       raw_data = open(url).read
 
@@ -19,15 +19,15 @@ class User < ApplicationRecord
       end
     end
   end
-  
+
   include JwtToken
-# Direct associations
+  # Direct associations
 
   belongs_to :player
 
   belongs_to :dm,
-             :required => false,
-             :class_name => "Dungeonmaster"
+             optional: true,
+             class_name: "Dungeonmaster"
 
   # Indirect associations
 

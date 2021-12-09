@@ -21,5 +21,4 @@ class DungeonmasterResource < ApplicationResource
              foreign_key: :dm_id
 
   # Indirect associations
-
 end

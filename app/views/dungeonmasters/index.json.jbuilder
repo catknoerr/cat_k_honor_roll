@@ -1,1 +1,2 @@
-json.array! @dungeonmasters, partial: "dungeonmasters/dungeonmaster", as: :dungeonmaster
+json.array! @dungeonmasters, partial: "dungeonmasters/dungeonmaster",
+                             as: :dungeonmaster

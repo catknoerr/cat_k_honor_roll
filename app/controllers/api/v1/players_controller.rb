@@ -13,7 +13,7 @@ class Api::V1::PlayersController < Api::V1::GraphitiController
     player = PlayerResource.build(params)
 
     if player.save
-      render jsonapi: player, status: 201
+      render jsonapi: player, status: :created
     else
       render jsonapi_errors: player
     end
@@ -33,7 +33,7 @@ class Api::V1::PlayersController < Api::V1::GraphitiController
     player = PlayerResource.find(params)
 
     if player.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: player
     end

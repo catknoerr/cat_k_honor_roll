@@ -17,5 +17,4 @@ class GameResource < ApplicationResource
              resource: DungeonmasterResource
 
   # Indirect associations
-
 end

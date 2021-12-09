@@ -13,7 +13,7 @@ class Api::V1::DungeonmastersController < Api::V1::GraphitiController
     dungeonmaster = DungeonmasterResource.build(params)
 
     if dungeonmaster.save
-      render jsonapi: dungeonmaster, status: 201
+      render jsonapi: dungeonmaster, status: :created
     else
       render jsonapi_errors: dungeonmaster
     end
@@ -33,7 +33,7 @@ class Api::V1::DungeonmastersController < Api::V1::GraphitiController
     dungeonmaster = DungeonmasterResource.find(params)
 
     if dungeonmaster.destroy
-      render jsonapi: { meta: {} }, status: 200
+      render jsonapi: { meta: {} }, status: :ok
     else
       render jsonapi_errors: dungeonmaster
     end

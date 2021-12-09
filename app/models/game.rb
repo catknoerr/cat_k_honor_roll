@@ -1,10 +1,10 @@
-require 'open-uri'
+require "open-uri"
 class Game < ApplicationRecord
   before_validation :geocode_location
 
   def geocode_location
-    if self.location.present?
-      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(self.location)}"
+    if location.present?
+      url = "https://maps.googleapis.com/maps/api/geocode/json?key=#{ENV['GMAP_API_KEY']}&address=#{URI.encode(location)}"
 
       raw_data = open(url).read
 
@@ -22,10 +22,10 @@ class Game < ApplicationRecord
   # Direct associations
 
   belongs_to :player,
-             :required => false
+             optional: true
 
   belongs_to :dm,
-             :class_name => "Dungeonmaster"
+             class_name: "Dungeonmaster"
 
   # Indirect associations
 
@@ -36,5 +36,4 @@ class Game < ApplicationRecord
   def to_s
     dm.to_s
   end
-
 end

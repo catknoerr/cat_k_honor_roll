@@ -16,5 +16,4 @@ class ReviewResource < ApplicationResource
              resource: DungeonmasterResource
 
   # Indirect associations
-
 end

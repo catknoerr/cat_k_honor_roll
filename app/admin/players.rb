@@ -1,6 +1,6 @@
 ActiveAdmin.register Player do
-
- permit_params :username, :photo, :location, :age, :description, :preferences, :characters
+  permit_params :username, :photo, :location, :age, :description, :preferences,
+                :characters
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +14,4 @@ ActiveAdmin.register Player do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end

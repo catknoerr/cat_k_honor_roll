@@ -19,5 +19,4 @@ class UserResource < ApplicationResource
              resource: DungeonmasterResource
 
   # Indirect associations
-
 end
