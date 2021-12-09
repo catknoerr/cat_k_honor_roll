@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :dm,
+             :required => false,
+             :class_name => "Dungeonmaster"
+
   # Indirect associations
 
   # Validations

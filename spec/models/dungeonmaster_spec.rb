@@ -4,6 +4,8 @@ RSpec.describe Dungeonmaster, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:users) }
+
     it { should have_many(:reviews) }
 
     end
