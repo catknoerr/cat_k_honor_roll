@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Game #<%= game.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Dm</dt>
+      <!-- Display dm_id start -->
+      <dd><%= game.dm_id %></dd>
+      <!-- Display dm_id end -->
+
+      <dt>Player</dt>
+      <!-- Display player_id start -->
+      <dd><%= game.player_id %></dd>
+      <!-- Display player_id end -->
+
+      <dt>Date</dt>
+      <!-- Display date start -->
+      <dd><%= game.date %></dd>
+      <!-- Display date end -->
+
+      <dt>Time</dt>
+      <!-- Display time start -->
+      <dd><%= game.time %></dd>
+      <!-- Display time end -->
+
+      <dt>Capacity</dt>
+      <!-- Display capacity start -->
+      <dd><%= game.capacity %></dd>
+      <!-- Display capacity end -->
+
+      <dt>Location</dt>
+      <!-- Display location start -->
+      <dd><%= game.location %></dd>
+      <!-- Display location end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back game, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link game start -->
+      <div class="col">
+        <%= link_to edit_game_url(game), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link game end -->
+
+      <!-- Delete link game start -->
+      <div class="col">
+        <%= link_to game, method: :delete, data: { confirm: "Do you really want to delete this game?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link game end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(game.updated_at) %> ago
+  </div>
+</div>
