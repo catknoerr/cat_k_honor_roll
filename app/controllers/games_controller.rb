@@ -1,7 +1,6 @@
 class GamesController < ApplicationController
   before_action :set_game, only: %i[show edit update destroy]
 
-  # GET /games
   def index
     @q = Game.ransack(params[:q])
     @games = @q.result(distinct: true).includes(:dm,
@@ -9,22 +8,17 @@ class GamesController < ApplicationController
     @location_hash = Gmaps4rails.build_markers(@games.where.not(location_latitude: nil)) do |game, marker|
       marker.lat game.location_latitude
       marker.lng game.location_longitude
-      marker.infowindow "<h5><a href='/games/#{game.id}'>#{game.dm_id}</a></h5><small>#{game.location_formatted_address}</small>"
     end
   end
 
-  # GET /games/1
   def show; end
 
-  # GET /games/new
   def new
     @game = Game.new
   end
 
-  # GET /games/1/edit
   def edit; end
 
-  # POST /games
   def create
     @game = Game.new(game_params)
 
@@ -40,7 +34,6 @@ class GamesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /games/1
   def update
     if @game.update(game_params)
       redirect_to @game, notice: "Game was successfully updated."
@@ -49,7 +42,6 @@ class GamesController < ApplicationController
     end
   end
 
-  # DELETE /games/1
   def destroy
     @game.destroy
     message = "Game was successfully deleted."
@@ -62,12 +54,10 @@ class GamesController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_game
     @game = Game.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def game_params
     params.require(:game).permit(:dm_id, :player_id, :date, :time, :capacity,
                                  :location)
