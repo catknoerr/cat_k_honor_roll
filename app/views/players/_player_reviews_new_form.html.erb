@@ -7,7 +7,7 @@
     <%= f.label :dm_id %>
 
     <!-- Input for dm_id start -->
-    <%= f.text_field :dm_id, class: "form-control" %>
+    <%= f.collection_select :dm_id, Dungeonmaster.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for dm_id end -->
   </div>
   <!-- Label and input for dm_id end -->
