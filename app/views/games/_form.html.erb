@@ -16,7 +16,7 @@
 
     <%= f.label :dm_id %>
     <!-- Input for dm_id start -->
-    <%= f.number_field :dm_id, class: dm_class, placeholder: "Enter dm" %>
+    <%= f.collection_select :dm_id, Dungeonmaster.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for dm_id end -->
     <% if dm_was_invalid %>
       <% game.errors.full_messages_for(:dm).each do |message| %>
