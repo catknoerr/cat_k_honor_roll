@@ -12,6 +12,8 @@ class PlayerResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :games
+
   # Indirect associations
 
 end
