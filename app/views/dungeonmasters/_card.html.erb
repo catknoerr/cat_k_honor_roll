@@ -1,0 +1,66 @@
+<div class="card mb-3">
+  <h2 class="card-header h4">
+    Dungeonmaster #<%= dungeonmaster.id %>
+  </h2>
+
+  <div class="card-body">
+    <dl class="mb-1">
+      <dt>Description</dt>
+      <!-- Display description start -->
+      <dd><%= dungeonmaster.description %></dd>
+      <!-- Display description end -->
+
+      <dt>Preferences</dt>
+      <!-- Display preferences start -->
+      <dd><%= dungeonmaster.preferences %></dd>
+      <!-- Display preferences end -->
+
+      <dt>Photo</dt>
+      <!-- Display photo start -->
+      <dd><%= dungeonmaster.photo %></dd>
+      <!-- Display photo end -->
+
+      <dt>Years experience</dt>
+      <!-- Display years_experience start -->
+      <dd><%= dungeonmaster.years_experience %></dd>
+      <!-- Display years_experience end -->
+
+      <dt>Age</dt>
+      <!-- Display age start -->
+      <dd><%= dungeonmaster.age %></dd>
+      <!-- Display age end -->
+
+      <dt>Characters</dt>
+      <!-- Display characters start -->
+      <dd><%= dungeonmaster.characters %></dd>
+      <!-- Display characters end -->
+
+    </dl>
+
+    <div class="row">
+      <div class="col">
+        <%= link_to_show_or_back dungeonmaster, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
+      </div>
+
+      <!-- Edit link dungeonmaster start -->
+      <div class="col">
+        <%= link_to edit_dungeonmaster_url(dungeonmaster), class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-edit"></i>
+        <% end %>
+      </div>
+      <!-- Edit link dungeonmaster end -->
+
+      <!-- Delete link dungeonmaster start -->
+      <div class="col">
+        <%= link_to dungeonmaster, method: :delete, data: { confirm: "Do you really want to delete this dungeonmaster?" }, class: "btn btn-block btn-outline-secondary" do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
+      <!-- Delete link dungeonmaster end -->
+    </div>
+  </div>
+
+  <div class="card-footer text-muted">
+    Last updated <%= time_ago_in_words(dungeonmaster.updated_at) %> ago
+  </div>
+</div>
