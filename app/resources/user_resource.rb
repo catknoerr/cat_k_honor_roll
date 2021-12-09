@@ -13,6 +13,8 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :player
+
   belongs_to :dm,
              resource: DungeonmasterResource
 
