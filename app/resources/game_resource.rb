@@ -11,6 +11,9 @@ class GameResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :dm,
+             resource: DungeonmasterResource
+
   # Indirect associations
 
 end
