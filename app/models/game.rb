@@ -1,6 +1,9 @@
 class Game < ApplicationRecord
   # Direct associations
 
+  belongs_to :player,
+             :required => false
+
   belongs_to :dm,
              :class_name => "Dungeonmaster"
 
