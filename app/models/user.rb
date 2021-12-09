@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Direct associations
 
+  belongs_to :player
+
   belongs_to :dm,
              :required => false,
              :class_name => "Dungeonmaster"

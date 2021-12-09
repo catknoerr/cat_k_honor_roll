@@ -1,6 +1,9 @@
 class Player < ApplicationRecord
   # Direct associations
 
+  has_many   :users,
+             :dependent => :destroy
+
   has_many   :reviews,
              :foreign_key => "reviewer_id",
              :dependent => :destroy
