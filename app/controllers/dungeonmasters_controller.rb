@@ -3,7 +3,7 @@ class DungeonmastersController < ApplicationController
 
   # GET /dungeonmasters
   def index
-    @dungeonmasters = Dungeonmaster.all
+    @dungeonmasters = Dungeonmaster.page(params[:page]).per(10)
   end
 
   # GET /dungeonmasters/1
