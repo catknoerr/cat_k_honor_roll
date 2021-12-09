@@ -1,5 +1,7 @@
 ActiveAdmin.register Dungeonmaster do
 
+ permit_params :description, :preferences, :photo, :years_experience, :age, :characters
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
