@@ -31,12 +31,20 @@
 
       <dt>Dm</dt>
       <!-- Display dm_id start -->
-      <dd><%= user.dm_id %></dd>
+      <dd>
+        <% if @user.dm.present? %>
+          <%= link_to user.dm, user.dm %>
+        <% end %>
+      </dd>
       <!-- Display dm_id end -->
 
       <dt>Player</dt>
       <!-- Display player_id start -->
-      <dd><%= user.player_id %></dd>
+      <dd>
+        <% if @user.player.present? %>
+          <%= link_to user.player, user.player %>
+        <% end %>
+      </dd>
       <!-- Display player_id end -->
 
     </dl>

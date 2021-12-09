@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Dm</dt>
       <!-- Display dm_id start -->
-      <dd><%= review.dm_id %></dd>
+      <dd>
+        <% if @review.dm.present? %>
+          <%= link_to review.dm, review.dm %>
+        <% end %>
+      </dd>
       <!-- Display dm_id end -->
 
       <dt>Rating</dt>
@@ -17,7 +21,11 @@
 
       <dt>Reviewer</dt>
       <!-- Display reviewer_id start -->
-      <dd><%= review.reviewer_id %></dd>
+      <dd>
+        <% if @review.player.present? %>
+          <%= link_to review.player, review.player %>
+        <% end %>
+      </dd>
       <!-- Display reviewer_id end -->
 
       <dt>Review</dt>
