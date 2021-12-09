@@ -9,6 +9,9 @@ class ReviewResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :player,
+             foreign_key: :reviewer_id
+
   belongs_to :dm,
              resource: DungeonmasterResource
 

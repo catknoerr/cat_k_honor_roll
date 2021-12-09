@@ -12,6 +12,9 @@ class PlayerResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :reviews,
+             foreign_key: :reviewer_id
+
   has_many   :games
 
   # Indirect associations
