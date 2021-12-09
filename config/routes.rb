@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :players
   resources :reviews
   resources :dungeonmasters
   devise_for :users
