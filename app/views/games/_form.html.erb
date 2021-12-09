@@ -1,7 +1,6 @@
 <% was_validated = game.errors.any? %>
 
 <%= form_with(model: game, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for dm_id start -->
   <div class="form-group">
     <% dm_class = "form-control" %>
     <% dm_was_invalid = game.errors.include?(:dm) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :dm_id %>
-    <!-- Input for dm_id start -->
     <%= f.collection_select :dm_id, Dungeonmaster.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for dm_id end -->
     <% if dm_was_invalid %>
       <% game.errors.full_messages_for(:dm).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for dm_id end -->
-  <!-- Label and input for player_id start -->
   <div class="form-group">
     <% player_class = "form-control" %>
     <% player_was_invalid = game.errors.include?(:player) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :player_id %>
-    <!-- Input for player_id start -->
     <%= f.collection_select :player_id, Player.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for player_id end -->
     <% if player_was_invalid %>
       <% game.errors.full_messages_for(:player).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for player_id end -->
-  <!-- Label and input for date start -->
   <div class="form-group">
     <% date_class = "form-control" %>
     <% date_was_invalid = game.errors.include?(:date) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :date %>
-    <!-- Input for date start -->
     <%= f.date_select :date, class: date_class, placeholder: "Enter date" %>
-    <!-- Input for date end -->
     <% if date_was_invalid %>
       <% game.errors.full_messages_for(:date).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for date end -->
-  <!-- Label and input for time start -->
   <div class="form-group">
     <% time_class = "form-control" %>
     <% time_was_invalid = game.errors.include?(:time) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :time %>
-    <!-- Input for time start -->
     <%= f.time_select :time, class: time_class, placeholder: "Enter time" %>
-    <!-- Input for time end -->
     <% if time_was_invalid %>
       <% game.errors.full_messages_for(:time).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for time end -->
-  <!-- Label and input for capacity start -->
   <div class="form-group">
     <% capacity_class = "form-control" %>
     <% capacity_was_invalid = game.errors.include?(:capacity) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :capacity %>
-    <!-- Input for capacity start -->
     <%= f.number_field :capacity, class: capacity_class, placeholder: "Enter capacity" %>
-    <!-- Input for capacity end -->
     <% if capacity_was_invalid %>
       <% game.errors.full_messages_for(:capacity).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for capacity end -->
-  <!-- Label and input for location start -->
   <div class="form-group">
     <% location_class = "form-control" %>
     <% location_was_invalid = game.errors.include?(:location) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :location %>
-    <!-- Input for location start -->
     <%= f.text_field :location, class: location_class, placeholder: "Enter location" %>
-    <!-- Input for location end -->
     <% if location_was_invalid %>
       <% game.errors.full_messages_for(:location).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for location end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

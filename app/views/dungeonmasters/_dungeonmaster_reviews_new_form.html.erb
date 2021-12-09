@@ -1,42 +1,24 @@
-<!-- Form review start -->
 <%= form_with(model: @review, local: true) do |f| %>
-<!-- Form review end -->
 
-  <!-- Label and input for dm_id start -->
-  <!-- Input for dm_id start -->
   <%= f.hidden_field :dm_id, value: @dungeonmaster.id %>
-  <!-- Input for dm_id end -->
-  <!-- Label and input for dm_id end -->
 
-  <!-- Label and input for rating start -->
   <div class="form-group">
     <%= f.label :rating %>
 
-    <!-- Input for rating start -->
     <%= f.text_field :rating, class: "form-control" %>
-    <!-- Input for rating end -->
   </div>
-  <!-- Label and input for rating end -->
 
-  <!-- Label and input for reviewer_id start -->
   <div class="form-group">
     <%= f.label :reviewer_id %>
 
-    <!-- Input for reviewer_id start -->
     <%= f.collection_select :reviewer_id, Player.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for reviewer_id end -->
   </div>
-  <!-- Label and input for reviewer_id end -->
 
-  <!-- Label and input for review start -->
   <div class="form-group">
     <%= f.label :review %>
 
-    <!-- Input for review start -->
     <%= f.text_field :review, class: "form-control" %>
-    <!-- Input for review end -->
   </div>
-  <!-- Label and input for review end -->
 
   <%= f.submit "Create review", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

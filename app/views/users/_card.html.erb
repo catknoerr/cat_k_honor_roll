@@ -6,46 +6,34 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Location</dt>
-      <!-- Display location start -->
       <dd>
         <div>
           <%= render partial: "users/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display location end -->
 
       <dt>Username</dt>
-      <!-- Display username start -->
       <dd><%= user.username %></dd>
-      <!-- Display username end -->
 
       <dt>First name</dt>
-      <!-- Display first_name start -->
       <dd><%= user.first_name %></dd>
-      <!-- Display first_name end -->
 
       <dt>Last name</dt>
-      <!-- Display last_name start -->
       <dd><%= user.last_name %></dd>
-      <!-- Display last_name end -->
 
       <dt>Dm</dt>
-      <!-- Display dm_id start -->
       <dd>
         <% if @user.dm.present? %>
           <%= link_to user.dm, user.dm %>
         <% end %>
       </dd>
-      <!-- Display dm_id end -->
 
       <dt>Player</dt>
-      <!-- Display player_id start -->
       <dd>
         <% if @user.player.present? %>
           <%= link_to user.player, user.player %>
         <% end %>
       </dd>
-      <!-- Display player_id end -->
 
     </dl>
 
@@ -54,21 +42,17 @@
         <%= link_to_show_or_back user, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link user start -->
       <div class="col">
         <%= link_to edit_user_url(user), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link user end -->
 
-      <!-- Delete link user start -->
       <div class="col">
         <%= link_to user, method: :delete, data: { confirm: "Do you really want to delete this user?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link user end -->
     </div>
   </div>
 

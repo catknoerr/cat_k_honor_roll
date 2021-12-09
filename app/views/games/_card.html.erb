@@ -6,46 +6,34 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Dm</dt>
-      <!-- Display dm_id start -->
       <dd>
         <% if @game.dm.present? %>
           <%= link_to game.dm, game.dm %>
         <% end %>
       </dd>
-      <!-- Display dm_id end -->
 
       <dt>Player</dt>
-      <!-- Display player_id start -->
       <dd>
         <% if @game.player.present? %>
           <%= link_to game.player, game.player %>
         <% end %>
       </dd>
-      <!-- Display player_id end -->
 
       <dt>Date</dt>
-      <!-- Display date start -->
       <dd><%= game.date %></dd>
-      <!-- Display date end -->
 
       <dt>Time</dt>
-      <!-- Display time start -->
       <dd><%= game.time %></dd>
-      <!-- Display time end -->
 
       <dt>Capacity</dt>
-      <!-- Display capacity start -->
       <dd><%= game.capacity %></dd>
-      <!-- Display capacity end -->
 
       <dt>Location</dt>
-      <!-- Display location start -->
       <dd>
         <div>
           <%= render partial: "games/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display location end -->
 
     </dl>
 
@@ -54,21 +42,17 @@
         <%= link_to_show_or_back game, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link game start -->
       <div class="col">
         <%= link_to edit_game_url(game), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link game end -->
 
-      <!-- Delete link game start -->
       <div class="col">
         <%= link_to game, method: :delete, data: { confirm: "Do you really want to delete this game?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link game end -->
     </div>
   </div>
 

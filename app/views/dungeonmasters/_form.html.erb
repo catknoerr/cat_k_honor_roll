@@ -1,7 +1,6 @@
 <% was_validated = dungeonmaster.errors.any? %>
 
 <%= form_with(model: dungeonmaster, local: true, novalidate: true, class: "mb-3") do |f| %>
-  <!-- Label and input for description start -->
   <div class="form-group">
     <% description_class = "form-control" %>
     <% description_was_invalid = dungeonmaster.errors.include?(:description) %>
@@ -15,9 +14,7 @@
     <% end %>
 
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_field :description, class: description_class, placeholder: "Enter description" %>
-    <!-- Input for description end -->
     <% if description_was_invalid %>
       <% dungeonmaster.errors.full_messages_for(:description).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -26,8 +23,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for description end -->
-  <!-- Label and input for preferences start -->
   <div class="form-group">
     <% preference_class = "form-control" %>
     <% preference_was_invalid = dungeonmaster.errors.include?(:preference) %>
@@ -41,9 +36,7 @@
     <% end %>
 
     <%= f.label :preferences %>
-    <!-- Input for preferences start -->
     <%= f.text_field :preferences, class: preference_class, placeholder: "Enter preference" %>
-    <!-- Input for preferences end -->
     <% if preference_was_invalid %>
       <% dungeonmaster.errors.full_messages_for(:preference).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -52,8 +45,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for preferences end -->
-  <!-- Label and input for photo start -->
   <div class="form-group">
     <% photo_class = "form-control" %>
     <% photo_was_invalid = dungeonmaster.errors.include?(:photo) %>
@@ -67,9 +58,7 @@
     <% end %>
 
     <%= f.label :photo %>
-    <!-- Input for photo start -->
     <%= f.file_field :photo, class: "form-control" %>
-    <!-- Input for photo end -->
     <% if photo_was_invalid %>
       <% dungeonmaster.errors.full_messages_for(:photo).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -78,8 +67,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for photo end -->
-  <!-- Label and input for years_experience start -->
   <div class="form-group">
     <% years_experience_class = "form-control" %>
     <% years_experience_was_invalid = dungeonmaster.errors.include?(:years_experience) %>
@@ -93,9 +80,7 @@
     <% end %>
 
     <%= f.label :years_experience %>
-    <!-- Input for years_experience start -->
     <%= f.number_field :years_experience, class: years_experience_class, placeholder: "Enter years experience" %>
-    <!-- Input for years_experience end -->
     <% if years_experience_was_invalid %>
       <% dungeonmaster.errors.full_messages_for(:years_experience).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -104,8 +89,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for years_experience end -->
-  <!-- Label and input for age start -->
   <div class="form-group">
     <% age_class = "form-control" %>
     <% age_was_invalid = dungeonmaster.errors.include?(:age) %>
@@ -119,9 +102,7 @@
     <% end %>
 
     <%= f.label :age %>
-    <!-- Input for age start -->
     <%= f.number_field :age, class: age_class, placeholder: "Enter age" %>
-    <!-- Input for age end -->
     <% if age_was_invalid %>
       <% dungeonmaster.errors.full_messages_for(:age).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -130,8 +111,6 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for age end -->
-  <!-- Label and input for characters start -->
   <div class="form-group">
     <% character_class = "form-control" %>
     <% character_was_invalid = dungeonmaster.errors.include?(:character) %>
@@ -145,9 +124,7 @@
     <% end %>
 
     <%= f.label :characters %>
-    <!-- Input for characters start -->
     <%= f.text_field :characters, class: character_class, placeholder: "Enter character" %>
-    <!-- Input for characters end -->
     <% if character_was_invalid %>
       <% dungeonmaster.errors.full_messages_for(:character).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -156,6 +133,5 @@
       <% end %>
     <% end %>
   </div>
-  <!-- Label and input for characters end -->
   <%= f.button class: "btn btn-outline-secondary btn-block" %>
 <% end %>

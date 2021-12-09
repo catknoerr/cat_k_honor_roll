@@ -6,45 +6,31 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>Username</dt>
-      <!-- Display username start -->
       <dd><%= player.username %></dd>
-      <!-- Display username end -->
 
       <dt>Photo</dt>
-      <!-- Display photo start -->
       <dd>
         <%= cl_image_tag @player.photo, class: "img-fluid" %>
       </dd>
-      <!-- Display photo end -->
 
       <dt>Location</dt>
-      <!-- Display location start -->
       <dd>
         <div>
           <%= render partial: "players/one_photo_map" %>
         </div>
       </dd>
-      <!-- Display location end -->
 
       <dt>Age</dt>
-      <!-- Display age start -->
       <dd><%= player.age %></dd>
-      <!-- Display age end -->
 
       <dt>Description</dt>
-      <!-- Display description start -->
       <dd><%= player.description %></dd>
-      <!-- Display description end -->
 
       <dt>Preferences</dt>
-      <!-- Display preferences start -->
       <dd><%= player.preferences %></dd>
-      <!-- Display preferences end -->
 
       <dt>Characters</dt>
-      <!-- Display characters start -->
       <dd><%= player.characters %></dd>
-      <!-- Display characters end -->
 
     </dl>
 
@@ -53,21 +39,17 @@
         <%= link_to_show_or_back player, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link player start -->
       <div class="col">
         <%= link_to edit_player_url(player), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link player end -->
 
-      <!-- Delete link player start -->
       <div class="col">
         <%= link_to player, method: :delete, data: { confirm: "Do you really want to delete this player?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link player end -->
     </div>
   </div>
 

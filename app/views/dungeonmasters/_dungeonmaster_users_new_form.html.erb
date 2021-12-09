@@ -1,82 +1,48 @@
-<!-- Form user start -->
 <%= form_with(model: @user, local: true) do |f| %>
-<!-- Form user end -->
 
-  <!-- Label and input for email start -->
   <div class="form-group">
     <%= f.label :email %>
 
-    <!-- Input for email start -->
     <%= f.text_field :email, class: "form-control" %>
-    <!-- Input for email end -->
   </div>
-  <!-- Label and input for email end -->
 
-  <!-- Label and input for password start -->
   <div class="form-group">
     <%= f.label :password %>
 
-    <!-- Input for password start -->
     <%= f.text_field :password, class: "form-control" %>
-    <!-- Input for password end -->
   </div>
-  <!-- Label and input for password end -->
 
-  <!-- Label and input for location start -->
   <div class="form-group">
     <%= f.label :location %>
 
-    <!-- Input for location start -->
     <%= f.text_field :location, class: "form-control" %>
-    <!-- Input for location end -->
   </div>
-  <!-- Label and input for location end -->
 
-  <!-- Label and input for username start -->
   <div class="form-group">
     <%= f.label :username %>
 
-    <!-- Input for username start -->
     <%= f.text_field :username, class: "form-control" %>
-    <!-- Input for username end -->
   </div>
-  <!-- Label and input for username end -->
 
-  <!-- Label and input for first_name start -->
   <div class="form-group">
     <%= f.label :first_name %>
 
-    <!-- Input for first_name start -->
     <%= f.text_field :first_name, class: "form-control" %>
-    <!-- Input for first_name end -->
   </div>
-  <!-- Label and input for first_name end -->
 
-  <!-- Label and input for last_name start -->
   <div class="form-group">
     <%= f.label :last_name %>
 
-    <!-- Input for last_name start -->
     <%= f.text_field :last_name, class: "form-control" %>
-    <!-- Input for last_name end -->
   </div>
-  <!-- Label and input for last_name end -->
 
-  <!-- Label and input for dm_id start -->
-  <!-- Input for dm_id start -->
   <%= f.hidden_field :dm_id, value: @dungeonmaster.id %>
-  <!-- Input for dm_id end -->
-  <!-- Label and input for dm_id end -->
 
-  <!-- Label and input for player_id start -->
   <div class="form-group">
     <%= f.label :player_id %>
 
-    <!-- Input for player_id start -->
     <%= f.collection_select :player_id, Player.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for player_id end -->
   </div>
-  <!-- Label and input for player_id end -->
 
   <%= f.submit "Create user", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
