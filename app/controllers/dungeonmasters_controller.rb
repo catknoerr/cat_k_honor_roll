@@ -3,7 +3,8 @@ class DungeonmastersController < ApplicationController
 
   # GET /dungeonmasters
   def index
-    @dungeonmasters = Dungeonmaster.page(params[:page]).per(10)
+    @q = Dungeonmaster.ransack(params[:q])
+    @dungeonmasters = @q.result(:distinct => true).includes(:reviews, :users, :games).page(params[:page]).per(10)
   end
 
   # GET /dungeonmasters/1
