@@ -32,7 +32,11 @@
 
       <dt>Location</dt>
       <!-- Display location start -->
-      <dd><%= game.location %></dd>
+      <dd>
+        <div>
+          <%= render partial: "games/one_photo_map" %>
+        </div>
+      </dd>
       <!-- Display location end -->
 
     </dl>

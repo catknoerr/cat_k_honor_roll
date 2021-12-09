@@ -4,6 +4,11 @@ class GamesController < ApplicationController
   # GET /games
   def index
     @games = Game.all
+    @location_hash = Gmaps4rails.build_markers(@games.where.not(:location_latitude => nil)) do |game, marker|
+      marker.lat game.location_latitude
+      marker.lng game.location_longitude
+      marker.infowindow "<h5><a href='/games/#{game.id}'>#{game.dm_id}</a></h5><small>#{game.location_formatted_address}</small>"
+    end
   end
 
   # GET /games/1
