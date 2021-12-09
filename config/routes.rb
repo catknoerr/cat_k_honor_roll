@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "dungeonmasters#index"
   resources :games
   resources :players
   resources :reviews
