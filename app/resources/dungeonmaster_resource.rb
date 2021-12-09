@@ -11,6 +11,9 @@ class DungeonmasterResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :users,
+             foreign_key: :dm_id
+
   has_many   :reviews,
              foreign_key: :dm_id
 
