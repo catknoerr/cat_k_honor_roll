@@ -8,6 +8,9 @@ class PlayersController < ApplicationController
 
   # GET /players/1
   def show
+    @user = User.new
+    @review = Review.new
+    @game = Game.new
   end
 
   # GET /players/new

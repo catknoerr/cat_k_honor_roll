@@ -8,6 +8,9 @@ class DungeonmastersController < ApplicationController
 
   # GET /dungeonmasters/1
   def show
+    @game = Game.new
+    @user = User.new
+    @review = Review.new
   end
 
   # GET /dungeonmasters/new

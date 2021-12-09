@@ -1,0 +1,62 @@
+<!-- Form game start -->
+<%= form_with(model: @game, local: true) do |f| %>
+<!-- Form game end -->
+
+  <!-- Label and input for dm_id start -->
+  <!-- Input for dm_id start -->
+  <%= f.hidden_field :dm_id, value: @dungeonmaster.id %>
+  <!-- Input for dm_id end -->
+  <!-- Label and input for dm_id end -->
+
+  <!-- Label and input for player_id start -->
+  <div class="form-group">
+    <%= f.label :player_id %>
+
+    <!-- Input for player_id start -->
+    <%= f.text_field :player_id, class: "form-control" %>
+    <!-- Input for player_id end -->
+  </div>
+  <!-- Label and input for player_id end -->
+
+  <!-- Label and input for date start -->
+  <div class="form-group">
+    <%= f.label :date %>
+
+    <!-- Input for date start -->
+    <%= f.date_select :date, class: "form-control" %>
+    <!-- Input for date end -->
+  </div>
+  <!-- Label and input for date end -->
+
+  <!-- Label and input for time start -->
+  <div class="form-group">
+    <%= f.label :time %>
+
+    <!-- Input for time start -->
+    <%= f.date_select :time, class: "form-control" %>
+    <!-- Input for time end -->
+  </div>
+  <!-- Label and input for time end -->
+
+  <!-- Label and input for capacity start -->
+  <div class="form-group">
+    <%= f.label :capacity %>
+
+    <!-- Input for capacity start -->
+    <%= f.text_field :capacity, class: "form-control" %>
+    <!-- Input for capacity end -->
+  </div>
+  <!-- Label and input for capacity end -->
+
+  <!-- Label and input for location start -->
+  <div class="form-group">
+    <%= f.label :location %>
+
+    <!-- Input for location start -->
+    <%= f.text_field :location, class: "form-control" %>
+    <!-- Input for location end -->
+  </div>
+  <!-- Label and input for location end -->
+
+  <%= f.submit "Create game", class: "btn btn-block btn-outline-secondary" %>
+<% end %>
