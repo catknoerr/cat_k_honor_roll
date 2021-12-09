@@ -12,7 +12,9 @@
 
       <dt>Photo</dt>
       <!-- Display photo start -->
-      <dd><%= player.photo %></dd>
+      <dd>
+        <%= cl_image_tag @player.photo, class: "img-fluid" %>
+      </dd>
       <!-- Display photo end -->
 
       <dt>Location</dt>
